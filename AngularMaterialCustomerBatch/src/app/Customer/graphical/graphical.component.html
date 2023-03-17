@@ -1,3 +1,17 @@
+<!-- <mat-card class="example-card">
+    <mat-card-content>
+        <h2 class="example-h2">Result</h2>
+
+        <mat-progress-spinner class="example-margin" [color]="primary" [mode]="indeterminate" [value]="50">
+        </mat-progress-spinner>
+    </mat-card-content>
+</mat-card> -->
+
+<div *ngIf="!chart" class="mat-sprinner">
+    <mat-progress-spinner diameter="150" [value]="0" mode="indeterminate">
+        Loading...
+    </mat-progress-spinner>
+</div>
 <div class="chart-container custom">
-    <canvas  id="MyChart" >{{ chart}}</canvas>   
+    <canvas id="MyChart">{{chart}}</canvas>
 </div>

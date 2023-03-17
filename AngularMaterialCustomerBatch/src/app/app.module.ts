@@ -17,6 +17,9 @@ import {MatCardModule} from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatRadioModule} from '@angular/material/radio';
+import { SampleTestComponent } from './sample-test/sample-test.component';
 //
 
 //Charts
@@ -30,7 +33,8 @@ import { MatSortModule } from '@angular/material/sort';
     HeaderComponent,
     FooterComponent,
     TabularComponent,
-    GraphicalComponent
+    GraphicalComponent,
+    SampleTestComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
+    MatProgressSpinnerModule,
+    MatRadioModule
     //
     // NgChartsModule
 

@@ -4,6 +4,8 @@ import { countryCount } from 'src/app/Model/genderCount';
 import { CustomerServiceService } from 'src/app/Services/customer-service.service';
 import { productSales } from './product';
 import { Chart } from 'chart.js/auto';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 
 @Component({
   selector: 'app-graphical',
@@ -17,6 +19,10 @@ export class GraphicalComponent implements OnInit {
   countryCount: any = [];
   public chart: any;
   name: any;
+
+  color: ThemePalette = 'primary';
+  mode: ProgressSpinnerMode = 'determinate';
+  value = 50;
 
 
   constructor(private customerService: CustomerServiceService) {
