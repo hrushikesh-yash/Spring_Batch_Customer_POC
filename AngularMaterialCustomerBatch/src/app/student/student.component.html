@@ -1,0 +1,53 @@
+<div class="student">
+
+
+    <h1 id="name">{{name}}</h1>
+    <mat-form-field class="example-full-width">
+        <input matInput type={{type}} id="username" placeholder={{placeholder}} [readonly]="userReadOnly" />&nbsp;
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="button" id="buttonId" [attr.aria-label]="ariaLabel">Save</button>
+
+    <hr>
+
+
+    <button mat-raised-button color="accent" type="button" id="submit" (click)="submitClick()">Submit</button> &nbsp;
+    &nbsp;&nbsp;&nbsp;
+
+    <button mat-raised-button color="warn" type="button" id="reset" (click)="resetClick()">Reset</button>
+    <br>
+
+    <br>
+    <mat-form-field class="example-full-width">
+
+        <input matInput id="textbox1" placeholder="Submit Button changes" (input)="onChangesInput()">
+    </mat-form-field>
+
+    <br>
+    <mat-form-field class="example-full-width">
+        <input matInput id="textbox2" placeholder="capture the event of input.." (input)="onChangesLabelInput($event)">
+    </mat-form-field>
+
+    <br><br>
+    <h2>{{label}}</h2>
+    <hr>
+    <mat-form-field class="example-full-width">
+        <input matInput id="inputName" placeholder="Enter the Name" type="text" class="form-control"
+            [(ngModel)]="customerName">
+    </mat-form-field>
+    <h2>{{customerName}}</h2>
+    <br><br>
+    <button mat-raised-button color="primary" type="button" id="SetName" (click)="setName()">Reset</button>
+
+    <hr>
+    <div *ngFor="let item of colorNames" class="ngFor1">
+        <div>{{item}}</div>
+    </div>
+    <br>
+    <p style="color:maroon;">Array list of Color with id</p>
+    <div *ngFor="let item of colorlist" class="ngFor2">
+        <div>{{item.id}} -- {{item.colorName}}</div>
+    </div>
+
+
+</div>

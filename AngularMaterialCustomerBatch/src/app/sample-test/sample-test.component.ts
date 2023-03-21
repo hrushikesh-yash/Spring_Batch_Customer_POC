@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class SampleTestComponent {
 
+  header:string='';
+
+  showMessage(message: String): String {
+    return message;
+  }
+
+  Addition(num1: number, num2: number): number {
+    return num1 + num2;
+  }
+
+  getHeader() {
+    this.header="Sample component";
+  }
+
 }

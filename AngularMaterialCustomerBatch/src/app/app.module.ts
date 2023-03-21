@@ -19,9 +19,14 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatRadioModule} from '@angular/material/radio';
-import { SampleTestComponent } from './sample-test/sample-test.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 //
-
+import { SampleTestComponent } from './sample-test/sample-test.component';
+import { StudentComponent } from './student/student.component';
+//
+import { FormsModule } from '@angular/forms';
+// import { timer } from 'd3-timer'
 //Charts
 
 
@@ -34,13 +39,15 @@ import { SampleTestComponent } from './sample-test/sample-test.component';
     FooterComponent,
     TabularComponent,
     GraphicalComponent,
-    SampleTestComponent
+    SampleTestComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
     // Angular Materials
     MatButtonModule,
     MatToolbarModule,
@@ -50,7 +57,9 @@ import { SampleTestComponent } from './sample-test/sample-test.component';
     MatPaginatorModule,
     MatSortModule,
     MatProgressSpinnerModule,
-    MatRadioModule
+    MatRadioModule,
+    MatInputModule,
+    MatFormFieldModule
     //
     // NgChartsModule
 

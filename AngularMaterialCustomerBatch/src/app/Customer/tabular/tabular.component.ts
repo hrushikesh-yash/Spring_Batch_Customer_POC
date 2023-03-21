@@ -19,8 +19,14 @@ export class TabularComponent implements OnInit {
   displayedColumns: string[] = ['id', 'first Name', 'Last Name', 'Email', 'Gender', 'Contact No', 'Country', 'Dob'];
   constructor(private customerService: CustomerServiceService) { }
 
-  ngOnInit(): void {
+  ngOnInit():void 
+   {
 
+     this.CheckMethodCalling();
+  }
+
+  CheckMethodCalling()
+  {
     this.getAllCustomers();
   }
 
