@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { Customer } from 'src/app/Model/Customer';
-import { CustomerServiceService } from 'src/app/Services/customer-service.service';
+import {  CustomerService} from 'src/app/Services/customer.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 
@@ -17,7 +17,7 @@ export class TabularComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   dataSource: any;
   displayedColumns: string[] = ['id', 'first Name', 'Last Name', 'Email', 'Gender', 'Contact No', 'Country', 'Dob'];
-  constructor(private customerService: CustomerServiceService) { }
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit():void 
    {

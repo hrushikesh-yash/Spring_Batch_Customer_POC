@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { PostModel } from '../Model/PostModel';
+import { FakeCustomerService } from '../Services/fake-customer.service';
 
 @Component({
   selector: 'app-student',
@@ -8,8 +11,18 @@ import { Component, OnInit } from '@angular/core';
 export class StudentComponent implements OnInit {
 
 
-  ngOnInit(): void {
+  private sub!: Subscription;
+  postData!: PostModel[];
+  constructor(private service: FakeCustomerService) { }
 
+  ngOnInit(): void {
+    this.getdata();
+  }
+  getdata() {
+    debugger
+    this.sub = this.service.getListOfData().subscribe((post) => {
+      this.postData = post;
+    });
   }
 
   customerName: string = 'Google'

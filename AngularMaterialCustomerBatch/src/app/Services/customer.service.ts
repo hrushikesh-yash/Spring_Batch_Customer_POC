@@ -1,16 +1,16 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
+import { Observable } from 'rxjs';
 import { Customer } from '../Model/Customer';
 import { countryCount } from '../Model/genderCount';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CustomerServiceService 
-{
+export class CustomerService {
 
-  baseURL:String="http://localhost:8081/jobs";
+ 
+  baseURL:string="http://localhost:8081/jobs";
 
   constructor(private httpClient:HttpClient) { }
 
@@ -25,5 +25,4 @@ export class CustomerServiceService
   {
     return this.httpClient.get<countryCount[]>(this.baseURL+"/getDataByCountry");
   }
-
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Customer } from 'src/app/Model/Customer';
 import { countryCount } from 'src/app/Model/genderCount';
-import { CustomerServiceService } from 'src/app/Services/customer-service.service';
+import {  CustomerService} from 'src/app/Services/customer.service';
 import { productSales } from './product';
 import { Chart } from 'chart.js/auto';
 import { ThemePalette } from '@angular/material/core';
@@ -25,7 +25,7 @@ export class GraphicalComponent implements OnInit {
   value = 50;
 
 
-  constructor(private customerService: CustomerServiceService) {
+  constructor(private customerService: CustomerService) {
 
   }
 

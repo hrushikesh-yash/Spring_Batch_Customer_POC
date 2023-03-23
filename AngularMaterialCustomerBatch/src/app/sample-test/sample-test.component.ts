@@ -1,13 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { PostModel } from '../Model/PostModel';
+import { FakeCustomerService } from '../Services/fake-customer.service';
 
 @Component({
   selector: 'app-sample-test',
   templateUrl: './sample-test.component.html',
   styleUrls: ['./sample-test.component.css']
 })
-export class SampleTestComponent {
+export class SampleTestComponent  {
 
-  header:string='';
+ 
+
+  header: string = '';
 
   showMessage(message: String): String {
     return message;
@@ -18,7 +23,7 @@ export class SampleTestComponent {
   }
 
   getHeader() {
-    this.header="Sample component";
+    this.header = "Sample component";
   }
 
 }

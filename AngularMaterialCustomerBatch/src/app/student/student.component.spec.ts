@@ -3,17 +3,21 @@ import { DebugElement } from '@angular/core';
 import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
+import { of } from 'rxjs/internal/observable/of';
 import { AppRoutingModule } from '../app-routing.module';
+import { FakeCustomerService } from '../Services/fake-customer.service';
 
 import { StudentComponent } from './student.component';
 
 describe('StudentComponent', () => {
   let component: StudentComponent;
   let fixture: ComponentFixture<StudentComponent>;
+  let services:FakeCustomerService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [StudentComponent],
+      providers:[FakeCustomerService],
       imports: [FormsModule, HttpClientModule, AppRoutingModule]
     })
       .compileComponents();
@@ -21,6 +25,7 @@ describe('StudentComponent', () => {
     fixture = TestBed.createComponent(StudentComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
+    services=TestBed.inject(FakeCustomerService);
   });
 
   it('should create', () => {
@@ -150,13 +155,13 @@ describe('StudentComponent', () => {
 
   }));
 
- 
-  it('ngFor array test',() => {
 
-    const element:DebugElement[] = fixture.debugElement.queryAll(By.css('.ngFor1'));
+  it('ngFor array test', () => {
+
+    const element: DebugElement[] = fixture.debugElement.queryAll(By.css('.ngFor1'));
     expect(element.length).toEqual(7);
 
-    element.forEach((Obj:DebugElement,index:number) => {
+    element.forEach((Obj: DebugElement, index: number) => {
 
       expect(Obj.children[0].nativeElement.innerHTML.trim()).toEqual(component.colorNames[index]);
 
@@ -164,18 +169,28 @@ describe('StudentComponent', () => {
 
   });
 
-  it('ngFor 2darray test',() => {
+  it('ngFor 2darray test', () => {
 
-    const element:DebugElement[] = fixture.debugElement.queryAll(By.css('.ngFor2'));
+    const element: DebugElement[] = fixture.debugElement.queryAll(By.css('.ngFor2'));
     expect(element.length).toEqual(4);
 
-    element.forEach((Obj:DebugElement,index:number) => {
+    element.forEach((Obj: DebugElement, index: number) => {
 
-      expect(Obj.children[0].nativeElement.innerHTML.trim()).toEqual(component.colorlist[index].id+ ' -- ' + component.colorlist[index].colorName);
+      expect(Obj.children[0].nativeElement.innerHTML.trim()).toEqual(component.colorlist[index].id + ' -- ' + component.colorlist[index].colorName);
 
     });
 
   });
+
+  it('test to Chek for Subscribe Method', fakeAsync(() => {
+
+    let spy=spyOn(services,'getListOfData').and.returnValue(of([]));
+    let subspy=spyOn(services.getListOfData(), 'subscribe');
+    component.ngOnInit();
+    expect(spy).toHaveBeenCalledBefore(subspy);
+    expect(spy).toHaveBeenCalled();
+
+  }));
 
 
 
